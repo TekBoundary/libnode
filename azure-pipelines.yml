@@ -129,7 +129,7 @@ jobs:
     - task: GitHubRelease@0
       inputs:
         gitHubConnection: 'GitHub connection 1'
-        repositoryName: patr0nus/libnode
+        repositoryName: patr0nus-NA/libnode
         action: 'create'
         target: '$(Build.SourceVersion)'
         tagSource: 'manual'
