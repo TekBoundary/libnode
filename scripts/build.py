@@ -22,7 +22,7 @@ subprocess.check_call(['cmake', '--build', 'build', '--config', 'Release'])
 os.chdir('node-{}'.format(config.nodeVersion))
 
 if sys.platform == 'win32':
-    vcbuildArgs = [ 'static' ]
+    vcbuildArgs = [ 'static', 'openssl-no-asm' ]
     if config.x86:
         vcbuildArgs.append('x86')
 
@@ -34,7 +34,7 @@ if sys.platform == 'win32':
         env=env
     )
 else:
-    configureArgvs = ['./configure', '--enable-static']
+    configureArgvs = ['./configure', '--enable-static', '--openssl-no-asm']
     if config.configFlags is not None:
         configureArgvs += config.configFlags
     subprocess.check_call(configureArgvs)
